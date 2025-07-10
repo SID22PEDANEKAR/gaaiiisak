@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Happy Birthday Engineer!</title>
+  <style>
+    body {
+      background: #0f0f0f;
+      color: #ffffffcc;
+      font-family: 'Fira Code', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2em;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #00ffc3;
+      text-shadow: 0 0 10px #00ffc3;
+      animation: flicker 3s infinite;
+    }
+
+    .message {
+      font-size: 1.3em;
+      margin-top: 20px;
+      max-width: 700px;
+      color: #ccc;
+    }
+
+    .cake {
+      width: 150px;
+      height: 150px;
+      background: #ff005d;
+      border-radius: 20px;
+      position: relative;
+      margin-top: 40px;
+      box-shadow: 0 0 20px #ff007f;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .cake:hover {
+      transform: scale(1.05);
+    }
+
+    .cake::before {
+      content: '';
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      width: 15px;
+      height: 25px;
+      background: orange;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px orange;
+    }
+
+    .blast {
+      animation: explode 0.5s forwards;
+    }
+
+    @keyframes explode {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(3); opacity: 0; }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    .gallery {
+      display: none;
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .gallery img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 3px solid #00ffc3;
+      box-shadow: 0 0 15px #00ffc3;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    audio {
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hello, World! 👩‍💻</h1>
+  <div class="message">
+    Happy Birthday, <b>Engineer Extraordinaire!</b><br>
+    Wishing you a year full of algorithms of joy, infinite loops of happiness,<br>
+    and a debugger-free life. 🚀💻🎂
+  </div>
+
+  <div class="cake" onclick="blastCake(this)"></div>
+
+  <div class="gallery" id="memoryGallery">
+    <img src="images/photo1.jpg" alt="Memory 1">
+    <img src="images/photo2.jpg" alt="Memory 2">
+    <img src="images/photo3.jpg" alt="Memory 3">
+    <img src="images/photo4.jpg" alt="Memory 4">
+  </div>
+
+  <!-- Background Music -->
+  <audio autoplay loop controls>
+    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function blastCake(cake) {
+      cake.classList.add('blast');
+      setTimeout(() => {
+        cake.style.display = 'none';
+        document.getElementById('memoryGallery').style.display = 'flex';
+      }, 500);
+    }
+  </script>
+</body>
+</html>
